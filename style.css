@@ -195,8 +195,18 @@ color:#162015;
 }
 
 .sidebar img{
-width:85%;
-margin-bottom:20px;
+    width:85%;
+    max-width:100%;
+    height:auto;
+    margin-bottom:20px;
+}
+@media (max-width: 700px) {
+    .sidebar img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
 }
 
 .contact{
