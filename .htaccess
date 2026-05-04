@@ -1,0 +1,16 @@
+AddDefaultCharset UTF-8
+
+Redirect 301 /alte-seite.html https://www.stsc.at/
+
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^\/index\.html$
+RewriteRule .* https://www.stsc.at/ [R=302,L]
+# ensure www.
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# ensure https
+RewriteCond %{HTTP:X-Forwarded-Proto} !https 
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
