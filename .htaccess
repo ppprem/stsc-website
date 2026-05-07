@@ -1,3 +1,4 @@
+ErrorDocument 404 /index.html
 AddDefaultCharset UTF-8
 
 Redirect 301 /alte-seite.html https://www.stsc.at/
