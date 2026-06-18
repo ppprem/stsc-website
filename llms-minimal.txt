@@ -1,0 +1,24 @@
+# STSC Website - Mag.a Silvia Christine Bors
+
+> Kompakte LLM-Navigation fuer die wichtigsten Inhalte der Praxis-Website (Leistungen, Kontakt, rechtliche Informationen und Blog-Einstieg).
+
+## Kernseiten
+
+- [Startseite](https://www.stsc.at/index.html): Zentrale Uebersicht zu Leistungen, Kontakt und Navigation.
+- [Personalien](https://www.stsc.at/Personalien.html): Person, Qualifikation und beruflicher Hintergrund.
+- [Systemische Psychotherapie](https://www.stsc.at/Systemische%20Psychotherapie.html): Leistungsseite zur systemischen Therapie.
+- [Traumatherapie](https://www.stsc.at/Traumatherapie.html): Leistungsseite zu Traumatherapie und EMDR.
+- [Hypnose](https://www.stsc.at/Hypnose.html): Leistungsseite zu klinischer Hypnose/Hypnotherapie.
+
+## Kontakt und Rechtliches
+
+- [Impressum](https://www.stsc.at/Impressum.html): Rechtliche Anbieterkennzeichnung.
+- [Datenschutz](https://www.stsc.at/Datenschutz.html): Datenschutzhinweise.
+- [Visitenkarte](https://www.stsc.at/visitenkarte.html): Kompakte Kontaktseite.
+
+## Inhalte und SEO
+
+- [Blog-Uebersicht](https://www.stsc.at/blog.html): Einstieg in alle Blogbeitraege.
+- [Beitragsindex](https://www.stsc.at/posts.json): Strukturierte Metadaten der Blogposts.
+- [Sitemap](https://www.stsc.at/sitemap.xml): Indexierbare Seiten fuer Suchmaschinen.
+

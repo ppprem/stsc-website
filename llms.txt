@@ -1,0 +1,53 @@
+# STSC Website - Mag.a Silvia Christine Bors
+
+> Statische Praxis-Website fuer Psychotherapie in Wien mit Leistungsseiten, Blog, Kontaktinformationen, rechtlichen Seiten und Hosting-Konfiguration.
+
+Diese Datei ist eine kuratierte Navigation fuer LLMs. Das Repository enthaelt aktuell keine README.md; der Projektkontext wird daher aus den zentralen HTML-, Konfigurations- und Inhaltsdateien abgeleitet.
+
+Kurzfassung fuer kleine Kontextfenster: [llms-minimal.txt](https://www.stsc.at/llms-minimal.txt).
+
+## Kernseiten
+
+- [Startseite](https://www.stsc.at/index.html): Hauptseite mit Leistungsueberblick, Kontaktdaten, strukturieren Daten (JSON-LD) und Navigation.
+- [Personalien](https://www.stsc.at/Personalien.html): Informationen zur Person, Qualifikation und beruflichem Hintergrund.
+- [Systemische Psychotherapie](https://www.stsc.at/Systemische%20Psychotherapie.html): Leistungsseite zur systemischen Therapie.
+- [Traumatherapie](https://www.stsc.at/Traumatherapie.html): Leistungsseite zu Traumatherapie, EMDR und verwandten Verfahren.
+- [Hypnose](https://www.stsc.at/Hypnose.html): Leistungsseite zu klinischer Hypnose und Hypnotherapie.
+- [Blog-Uebersicht](https://www.stsc.at/blog.html): Einstieg in alle Blogbeitraege.
+- [Impressum](https://www.stsc.at/Impressum.html): Rechtliche Anbieterkennzeichnung.
+- [Datenschutz](https://www.stsc.at/Datenschutz.html): Datenschutzhinweise der Website.
+- [Visitenkarte](https://www.stsc.at/visitenkarte.html): Kompakte Kontakt-/Praesenzseite.
+
+## Blog-Inhalte
+
+- [Blogbeitrag 1](https://www.stsc.at/blog-post-1.html): Die Macht der Perspektive in der systemischen Therapie.
+- [Blogbeitrag 2](https://www.stsc.at/blog-post-2.html): Einfuehrung in EMDR bei Traumata.
+- [Blogbeitrag 3](https://www.stsc.at/blog-post-3.html): Selbstfuersorge im Alltag.
+- [Beitragsindex als JSON](https://www.stsc.at/posts.json): Strukturierte Metadaten zu Blogbeitraegen (Titel, Datum, URL, Teaser).
+
+## SEO und Verifikation
+
+- [Sitemap](https://www.stsc.at/sitemap.xml): Auflistung der indexierten Seiten mit Prioritaeten und Aenderungsfrequenz.
+- [Bing Site Auth](https://www.stsc.at/BingSiteAuth.xml): Verifikationsdatei fuer Bing Webmaster Tools.
+- [Google Site Verification](https://www.stsc.at/google7d855735e969ce4c.html): Verifikationsdatei fuer Google Search Console.
+
+## Konfiguration und Betrieb
+
+- [Firebase Hosting Konfiguration](https://www.stsc.at/firebase.json): Deployment-Root und Ignore-Regeln fuer Hosting.
+- [Apache Konfiguration](https://www.stsc.at/.htaccess): Redirects, HTTPS/WWW-Erzwingung und Fehlerdokument.
+- [Globale Styles](https://www.stsc.at/style.css): Zentrale Gestaltung fuer alle Seiten.
+
+## Entwicklungs-Hilfen
+
+- [_dev_backup/deploy.ps1](https://www.stsc.at/_dev_backup/deploy.ps1): PowerShell-Deploymentskript (Backup-/Arbeitsbereich).
+- [_dev_backup/deploy.config.example.ps1](https://www.stsc.at/_dev_backup/deploy.config.example.ps1): Beispielkonfiguration fuer Deployment-Parameter.
+- [_dev_backup/create_silvia_new.py](https://www.stsc.at/_dev_backup/create_silvia_new.py): Python-Hilfsskript im Entwicklungsordner.
+- [_dev_backup/screenshot_map.py](https://www.stsc.at/_dev_backup/screenshot_map.py): Skript zur Karten-/Screenshot-Verarbeitung.
+- [_dev_backup/screenshot-map.js](https://www.stsc.at/_dev_backup/screenshot-map.js): JavaScript-Variante fuer Screenshot-/Kartenaufgaben.
+
+## Optional
+
+- [Bild- und Favicon-Assets](https://www.stsc.at/picture_library/): Medien und Icons fuer Seiteninhalte und Favicons.
+- [_dev_backup/documents/Datenschutzerklaerung.pdf](https://www.stsc.at/_dev_backup/documents/Datenschutzerklaerung.pdf): Zusatzdokument im Backup-Bereich.
+- [Alternative Favicon-Variante](https://www.stsc.at/picture_library/favicon_io_stsc_alt/site.webmanifest): Alternative Webmanifest-Konfiguration.
+
