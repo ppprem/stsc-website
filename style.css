@@ -122,12 +122,101 @@ text-align:center;
 }
 
 .hero h1{
-font-size:40px;
+font-size:1.5em;
 margin-bottom:20px;
 }
 
 .hero h2 {
     margin-bottom: 1em;
+}
+
+.hero-popup-trigger {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #fdf0e4;
+    color: #162015;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.hero-popup-trigger:hover,
+.hero-popup-trigger:focus-visible {
+    background: #fbe2cc;
+}
+
+.hero-popup-trigger:focus-visible {
+    outline: 2px solid #fdf0e4;
+    outline-offset: 4px;
+}
+
+.hero-popup-linkhint {
+    display: inline-block;
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.hero-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(22, 32, 21, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.hero-modal.is-open {
+    display: flex;
+}
+
+.hero-modal-dialog {
+    position: relative;
+    width: min(680px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #f5f4f2;
+    color: #162015;
+    border-radius: 14px;
+    border-top: 4px solid #ff8500;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+    padding: 28px 24px 24px;
+}
+
+.hero-modal-dialog h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+.hero-modal-dialog p {
+    margin: 0;
+}
+
+.hero-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: 0;
+    border-radius: 6px;
+    padding: 8px 12px;
+    background: #fdf0e4;
+    color: #162015;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.hero-modal-close:hover {
+    background: #fbe2cc;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 .hero h3 {
@@ -176,8 +265,39 @@ transition: background-color 0.3s;
     font-weight: 700;
 }
 
+.blog-post-list h3 a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+}
+
 .blog-post-list h4 a:hover {
     color: #f8951b;
+}
+
+.blog-post-list h3 a:hover {
+    color: #000;
+}
+
+.emdr-blog-link {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #fdf0e4;
+    color: #162015;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.emdr-blog-link:hover,
+.emdr-blog-link:focus-visible {
+    background: #fbe2cc;
+    text-decoration: none;
+}
+
+.emdr-link-row {
+    display: block;
+    margin-top: 10px;
 }
 
 .blog-post .post-meta {
@@ -185,6 +305,10 @@ transition: background-color 0.3s;
     font-size: 0.9em;
     margin-bottom: 20px;
     display: block;
+}
+
+.blog-post h1 {
+    font-size: 1.5em;
 }
 
 .blog-post h2 {
@@ -265,6 +389,12 @@ padding:40px;
 /* Mobile */
 
 @media (max-width:1260px){
+
+.hero-modal-dialog {
+    width: 100%;
+    max-height: 90vh;
+    padding: 22px 18px 18px;
+}
 
 .container{
 grid-template-columns:1fr;

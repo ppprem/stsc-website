@@ -115,19 +115,9 @@
   <div class="hero-text-bg">
     <div class="hero-text">
 
-<h2>Wie verläuft eine Traumatherapie bei mir?</h2>
+<h1>Traumatherapie und EMDR in Wien -<br> Mag.<sup>a</sup> Silvia Christine Bors</h1>
 
-<h3>
-Zuerst besprechen wir Ihre Lebenssituation. Die eigentliche Traumatherapie kann erst beginnen, 
-wenn in Ihrem alltäglichen Leben Sicherheit gegeben ist.<br> Erst danach erfolgt die Traumabearbeitung, bei der
-in laufender Abstimmung mit Ihnen besprochene Methoden und Techniken zur Anwendung kommen können.<br>
-Anschließend können die neu gewonnenen Erfahrungen und Erkenntnisse in Ihren Alltag integriert werden und ihre 
-positive Wirkung entfalten.
-</h3>
-
-
-
-</h3>
+<h3 class="hero-popup-trigger" id="traumatherapie-trigger" role="button" tabindex="0" aria-controls="traumatherapie-modal" aria-expanded="false"><span class="hero-popup-linkhint">Wie verläuft eine Traumatherapie bei mir?</span></h3>
 
 
 
@@ -137,6 +127,18 @@ positive Wirkung entfalten.
     </div>
   </div>
 </section>
+
+<div class="hero-modal" id="traumatherapie-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="traumatherapie-title">
+  <div class="hero-modal-dialog">
+    <button type="button" class="hero-modal-close" id="traumatherapie-close" aria-label="Popup schließen">Schließen</button>
+    <h3 id="traumatherapie-title">Wie verläuft eine Traumatherapie bei mir?</h3>
+    <p>Zuerst besprechen wir Ihre Lebenssituation. Die eigentliche Traumatherapie kann erst beginnen,
+    wenn in Ihrem alltäglichen Leben Sicherheit gegeben ist.<br> Erst danach erfolgt die Traumabearbeitung, bei der
+    in laufender Abstimmung mit Ihnen besprochene Methoden und Techniken zur Anwendung kommen können.<br>
+    Anschließend können die neu gewonnenen Erfahrungen und Erkenntnisse in Ihren Alltag integriert werden und ihre
+    positive Wirkung entfalten.</p>
+  </div>
+</div>
 
 
 <!-- Main Content -->
@@ -168,6 +170,14 @@ Erhöhte Wachsamkeit, Schreckhaftigkeit, innere Unruhe und Anspannung, erhöhtes
 Schlafstörungen, emotionale Taubheit, körperliche Taubheitsgefühle, unverhältnismäßig starke Reaktionen auf bestimmte Reize, 
 Rückblenden (Flashbacks), Alpträume, Gefühle von Kontrollverlust über sich selbst.
 </p>
+
+<h4>EMDR – Eye Movement Desensitization and Reprocessing</h4>
+
+<p>EMDR ist eine der am besten untersuchten Methoden zur Behandlung von posttraumatischen Belastungsstörungen (PTBS) und wird 
+weltweit von Fachgesellschaften anerkannt. Es ist ein strukturierter und schonender Weg, um alte Wunden heilen zu lassen 
+und wieder mehr Stabilität im Hier und Jetzt zu finden. Siehe dazu meinen Blog-Beitrag:
+<span class="emdr-link-row"><a href="blog-post-2.html" class="emdr-blog-link">Was ist EMDR und 
+wie kann es bei Traumata helfen?</a></span></p>
 
 <h4>Weiterführende Informationen und Beiträge</h4>
 
@@ -259,6 +269,47 @@ folgt die Datenübertragung an Google, worauf wir keinen Einfluss haben.
     navToggle.addEventListener('click', () => {
         header.classList.toggle('nav-open');
         menu.classList.toggle('nav-open');
+    });
+
+    const traumatherapieTrigger = document.getElementById('traumatherapie-trigger');
+    const traumatherapieModal = document.getElementById('traumatherapie-modal');
+    const traumatherapieClose = document.getElementById('traumatherapie-close');
+
+    function openTraumatherapieModal() {
+      traumatherapieModal.classList.add('is-open');
+      traumatherapieModal.setAttribute('aria-hidden', 'false');
+      traumatherapieTrigger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeTraumatherapieModal() {
+      traumatherapieModal.classList.remove('is-open');
+      traumatherapieModal.setAttribute('aria-hidden', 'true');
+      traumatherapieTrigger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('modal-open');
+      traumatherapieTrigger.focus();
+    }
+
+    traumatherapieTrigger.addEventListener('click', openTraumatherapieModal);
+    traumatherapieTrigger.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openTraumatherapieModal();
+      }
+    });
+
+    traumatherapieClose.addEventListener('click', closeTraumatherapieModal);
+
+    traumatherapieModal.addEventListener('click', (event) => {
+      if (event.target === traumatherapieModal) {
+        closeTraumatherapieModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && traumatherapieModal.classList.contains('is-open')) {
+        closeTraumatherapieModal();
+      }
     });
 </script>
 

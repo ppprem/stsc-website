@@ -112,19 +112,26 @@
   <div class="hero-text-bg">
     <div class="hero-text">
 
-<h2>Wie sieht ein Erstgespräch bei mir aus?</h2>
+<h1>Systemische Psychotherapie für Erwachsene,<br> Jugendliche und Kinder in Wien<br>  Mag.<sup>a</sup> Silvia Christine Bors</h1>
 
-<h3>In einem persönlichen Telefonat teilen Sie mir mit, worum es geht.<br>
-Hier kann ich Ihre Fragen beantworten und Ihnen einen Termin für ein Erstgespräch vorschlagen.
-Das Erstgespräch ist ein erstes Kennenlernen, ein Besprechen methodischer und organisatorischer Fragen,
-und ich kläre mit Ihnen die Problemstellung ab. Wenn Sie sich für eine Therapie bei mir entscheiden,<br>
-können wir auf dieser Basis gemeinsam die Ziele der<br> therapeutischen Behandlung festlegen.</h3>
-
+<h3 class="hero-popup-trigger" id="erstgespraech-trigger" role="button" tabindex="0" aria-controls="erstgespraech-modal" aria-expanded="false"><span class="hero-popup-linkhint">Wie vereinbaren Sie ein Erstgespräch?</span></h3>
 
 
     </div>
   </div>
 </section>
+
+<div class="hero-modal" id="erstgespraech-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="erstgespraech-title">
+  <div class="hero-modal-dialog">
+    <button type="button" class="hero-modal-close" id="erstgespraech-close" aria-label="Popup schließen">Schließen</button>
+    <h3 id="erstgespraech-title">Wie vereinbaren Sie ein Erstgespräch?</h3>
+    <p>In einem persönlichen Telefonat teilen Sie mir mit, worum es geht.<br>
+    Hier kann ich Ihre Fragen beantworten und Ihnen einen Termin für ein Erstgespräch vorschlagen.
+    Das Erstgespräch ist ein erstes Kennenlernen, ein Besprechen methodischer und organisatorischer Fragen,
+    und ich kläre mit Ihnen die Problemstellung ab.<br> Wenn Sie sich für eine Therapie bei mir entscheiden,
+    können wir auf dieser Basis gemeinsam die Ziele der therapeutischen Behandlung festlegen.</p>
+  </div>
+</div>
 
 
 <!-- Main Content -->
@@ -236,6 +243,47 @@ folgt die Datenübertragung an Google, worauf wir keinen Einfluss haben.
     navToggle.addEventListener('click', () => {
         header.classList.toggle('nav-open');
         menu.classList.toggle('nav-open');
+    });
+
+    const erstgespraechTrigger = document.getElementById('erstgespraech-trigger');
+    const erstgespraechModal = document.getElementById('erstgespraech-modal');
+    const erstgespraechClose = document.getElementById('erstgespraech-close');
+
+    function openErstgespraechModal() {
+      erstgespraechModal.classList.add('is-open');
+      erstgespraechModal.setAttribute('aria-hidden', 'false');
+      erstgespraechTrigger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeErstgespraechModal() {
+      erstgespraechModal.classList.remove('is-open');
+      erstgespraechModal.setAttribute('aria-hidden', 'true');
+      erstgespraechTrigger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('modal-open');
+      erstgespraechTrigger.focus();
+    }
+
+    erstgespraechTrigger.addEventListener('click', openErstgespraechModal);
+    erstgespraechTrigger.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openErstgespraechModal();
+      }
+    });
+
+    erstgespraechClose.addEventListener('click', closeErstgespraechModal);
+
+    erstgespraechModal.addEventListener('click', (event) => {
+      if (event.target === erstgespraechModal) {
+        closeErstgespraechModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && erstgespraechModal.classList.contains('is-open')) {
+        closeErstgespraechModal();
+      }
     });
 </script>
 

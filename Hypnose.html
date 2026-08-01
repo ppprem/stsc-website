@@ -115,13 +115,9 @@
   <div class="hero-text-bg">
     <div class="hero-text">
 
-<h2>Was erwartet Sie bei einer<br> Hypnose/hypnotherapeutischen Behandlung?</h2>
+<h1>Hypnose und Hypnotherapie in Wien -<br> Mag.<sup>a</sup> Silvia Christine Bors</h1>
 
-<h3>
-    In der hypnotischen Trance lernen Sie, Ihre Aufmerksamkeit vermehrt<br> zu konzentrieren und nach innen zu richten. 
-    Sie werden also nicht hypnotisiert, sondern Sie erzeugen die Trance selbst und lernen, Hypnose für sich zu nutzen.<br> 
-    Der Begriff Hypnotherapie wird für die Nutzung der Hypnose<br> innerhalb der Psychotherapie verwendet.   
-</h3>
+<h3 class="hero-popup-trigger" id="hypnose-trigger" role="button" tabindex="0" aria-controls="hypnose-modal" aria-expanded="false"><span class="hero-popup-linkhint">Wie verläuft eine Hypnose/<br> hypnotherapeutische Behandlung<br> bei mir?</span></h3>
 
 
 
@@ -131,6 +127,16 @@
     </div>
   </div>
 </section>
+
+<div class="hero-modal" id="hypnose-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="hypnose-title">
+  <div class="hero-modal-dialog">
+    <button type="button" class="hero-modal-close" id="hypnose-close" aria-label="Popup schließen">Schließen</button>
+    <h3 id="hypnose-title">Wie verläuft eine Hypnose/hypnotherapeutische Behandlung bei mir?</h3>
+    <p>In der hypnotischen Trance lernen Sie, Ihre Aufmerksamkeit vermehrt<br> zu konzentrieren und nach innen zu richten.
+    Sie werden also nicht hypnotisiert, sondern Sie erzeugen die Trance selbst und lernen, Hypnose für sich zu nutzen.<br>
+    Der Begriff Hypnotherapie wird für die Nutzung der Hypnose<br> innerhalb der Psychotherapie verwendet.</p>
+  </div>
+</div>
 
 
 <!-- Main Content -->
@@ -247,6 +253,47 @@ folgt die Datenübertragung an Google, worauf wir keinen Einfluss haben.
     navToggle.addEventListener('click', () => {
         header.classList.toggle('nav-open');
         menu.classList.toggle('nav-open');
+    });
+
+    const hypnoseTrigger = document.getElementById('hypnose-trigger');
+    const hypnoseModal = document.getElementById('hypnose-modal');
+    const hypnoseClose = document.getElementById('hypnose-close');
+
+    function openHypnoseModal() {
+      hypnoseModal.classList.add('is-open');
+      hypnoseModal.setAttribute('aria-hidden', 'false');
+      hypnoseTrigger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeHypnoseModal() {
+      hypnoseModal.classList.remove('is-open');
+      hypnoseModal.setAttribute('aria-hidden', 'true');
+      hypnoseTrigger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('modal-open');
+      hypnoseTrigger.focus();
+    }
+
+    hypnoseTrigger.addEventListener('click', openHypnoseModal);
+    hypnoseTrigger.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openHypnoseModal();
+      }
+    });
+
+    hypnoseClose.addEventListener('click', closeHypnoseModal);
+
+    hypnoseModal.addEventListener('click', (event) => {
+      if (event.target === hypnoseModal) {
+        closeHypnoseModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && hypnoseModal.classList.contains('is-open')) {
+        closeHypnoseModal();
+      }
     });
 </script>
 
