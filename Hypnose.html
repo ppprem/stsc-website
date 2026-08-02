@@ -53,23 +53,50 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "STSC – Mag.ª Silvia Christine Bors",
-  "url": "https://www.stsc.at/",
-  "logo": "https://www.stsc.at/picture_library/Google_neu.png",
-  "image": "https://www.stsc.at/picture_library/Silvia.webp",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Ledererhof 2 / Drahtgasse 3",
-    "addressLocality": "Wien",
-    "postalCode": "1010",
-    "addressCountry": "AT"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+43-680-3136988",
-    "contactType": "Praxis"
-  }
+  "@graph": [
+    {
+      "@type": "Psychologist",
+      "@id": "https://www.stsc.at/#practice",
+      "name": "STSC - Mag. Silvia Christine Bors",
+      "url": "https://www.stsc.at/",
+      "telephone": "+43-680-3136988",
+      "email": "mailto:sc.bors@stsc.at",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ledererhof 2 / Drahtgasse 3",
+        "addressLocality": "Wien",
+        "postalCode": "1010",
+        "addressCountry": "AT"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.stsc.at/Hypnose.html#service",
+      "serviceType": "Hypnose und Hypnotherapie",
+      "provider": {
+        "@id": "https://www.stsc.at/#practice"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Wien"
+      },
+      "url": "https://www.stsc.at/Hypnose.html"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.stsc.at/Hypnose.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie verläuft eine Hypnose oder hypnotherapeutische Behandlung bei mir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In der hypnotischen Trance lernen Sie, Ihre Aufmerksamkeit vermehrt zu konzentrieren und nach innen zu richten. Sie werden also nicht hypnotisiert, sondern Sie erzeugen die Trance selbst und lernen, Hypnose fuer sich zu nutzen. Der Begriff Hypnotherapie wird fuer die Nutzung der Hypnose innerhalb der Psychotherapie verwendet."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>

@@ -53,23 +53,50 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "STSC – Mag.ª Silvia Christine Bors",
-  "url": "https://www.stsc.at/",
-  "logo": "https://www.stsc.at/picture_library/Google_neu.png",
-  "image": "https://www.stsc.at/picture_library/Silvia.webp",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Ledererhof 2 / Drahtgasse 3",
-    "addressLocality": "Wien",
-    "postalCode": "1010",
-    "addressCountry": "AT"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+43-680-3136988",
-    "contactType": "Praxis"
-  }
+  "@graph": [
+    {
+      "@type": "Psychologist",
+      "@id": "https://www.stsc.at/#practice",
+      "name": "STSC - Mag. Silvia Christine Bors",
+      "url": "https://www.stsc.at/",
+      "telephone": "+43-680-3136988",
+      "email": "mailto:sc.bors@stsc.at",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ledererhof 2 / Drahtgasse 3",
+        "addressLocality": "Wien",
+        "postalCode": "1010",
+        "addressCountry": "AT"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.stsc.at/Systemische%20Psychotherapie.html#service",
+      "serviceType": "Systemische Psychotherapie",
+      "provider": {
+        "@id": "https://www.stsc.at/#practice"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Wien"
+      },
+      "url": "https://www.stsc.at/Systemische%20Psychotherapie.html"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.stsc.at/Systemische%20Psychotherapie.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie vereinbaren Sie ein Erstgespräch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In einem persoenlichen Telefonat teilen Sie mir mit, worum es geht. Hier kann ich Ihre Fragen beantworten und Ihnen einen Termin fuer ein Erstgespraech vorschlagen. Das Erstgespraech ist ein erstes Kennenlernen, ein Besprechen methodischer und organisatorischer Fragen, und ich klaere mit Ihnen die Problemstellung ab. Wenn Sie sich fuer eine Therapie bei mir entscheiden, koennen wir auf dieser Basis gemeinsam die Ziele der therapeutischen Behandlung festlegen."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>

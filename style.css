@@ -126,6 +126,11 @@ font-size:1.5em;
 margin-bottom:20px;
 }
 
+.hero .hero-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
 .hero h2 {
     margin-bottom: 1em;
 }
