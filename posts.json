@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "id": "blog-post-4",
+      "title": "Wie Hypnotherapie Sie dabei unterstützen kann, neue Wege im Umgang mit belastenden Situationen zu finden",
+      "date": "2026-08-03",
+      "excerpt": "Belastende Lebensereignisse, anhaltender Stress oder emotionale Krisen können dazu führen, dass sich Gedanken, Gefühle und Verhaltensweisen immer wieder im Kreis drehen. Viele Menschen wünschen sich in solchen Situationen eine wirksame Unterstützung...",
+      "url": "blog-post-4.html"
+    },
+    {
       "id": "blog-post-1",
       "title": "Die Macht der Perspektive in der Systemischen Therapie",
       "date": "2026-05-02",
