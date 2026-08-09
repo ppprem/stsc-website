@@ -51,23 +51,42 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "STSC – Mag.a Silvia Christine Bors",
-  "url": "https://www.stsc.at/",
-  "logo": "https://www.stsc.at/picture_library/Google_neu.png",
-  "image": "https://www.stsc.at/picture_library/Silvia.webp",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Ledererhof 2 / Drahtgasse 3",
-    "addressLocality": "Wien",
-    "postalCode": "1010",
-    "addressCountry": "AT"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+43-680-3136988",
-    "contactType": "Praxis"
-  }
+  "@graph": [
+    {
+      "@type": "Psychologist",
+      "@id": "https://www.stsc.at/#practice",
+      "name": "STSC - Mag. Silvia Christine Bors",
+      "url": "https://www.stsc.at/",
+      "telephone": "+43-680-3136988",
+      "email": "mailto:sc.bors@stsc.at",
+      "image": "https://www.stsc.at/picture_library/Silvia.webp",
+      "logo": "https://www.stsc.at/picture_library/Google_neu.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ledererhof 2 / Drahtgasse 3",
+        "addressLocality": "Wien",
+        "postalCode": "1010",
+        "addressCountry": "AT"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Wien"
+      },
+      "availableLanguage": [
+        "de"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stsc.at/#website",
+      "url": "https://www.stsc.at/",
+      "name": "STSC - Psychotherapie Wien",
+      "inLanguage": "de-AT",
+      "publisher": {
+        "@id": "https://www.stsc.at/#practice"
+      }
+    }
+  ]
 }
 </script>
 </head>
