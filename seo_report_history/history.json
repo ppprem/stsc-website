@@ -1,5 +1,15 @@
 [
   {
+    "generated_at": "2026-09-03T09:54:16Z",
+    "report_name": "seo_report_20260903_095416.html",
+    "counts": {
+      "total": 13,
+      "blocked": 13,
+      "live": 0,
+      "signals": 7
+    }
+  },
+  {
     "generated_at": "2026-09-03T09:35:33Z",
     "report_name": "seo_report_20260903_093533.html",
     "counts": {

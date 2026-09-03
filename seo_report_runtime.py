@@ -511,8 +511,8 @@ def render_html_report(
   .pill {{ border-radius: 999px; padding: 8px 14px; font-size: 0.9rem; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.22); }}
   .toolbar {{ display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 18px; color: var(--muted); }}
   .toolbar .chip {{ background: rgba(22, 32, 21, 0.06); padding: 8px 12px; border-radius: 999px; }}
-  table {{ width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); box-shadow: var(--shadow); border-radius: 18px; overflow: hidden; border: 1px solid var(--border); }}
-  th, td {{ padding: 12px 10px; border-bottom: 1px solid #e8e2d8; vertical-align: top; text-align: left; }}
+    table {{ width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; background: var(--surface); box-shadow: var(--shadow); border-radius: 18px; overflow: hidden; border: 1px solid var(--border); }}
+    th, td {{ padding: 8px 6px; border-bottom: 1px solid #e8e2d8; vertical-align: top; text-align: left; font-size: 0.74rem; line-height: 1.25; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }}
   th {{ background: #162015; color: white; position: sticky; top: 0; z-index: 1; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; }}
   tbody tr:nth-child(even) {{ background: rgba(22, 32, 21, 0.02); }}
   tr.blocked {{ background: var(--danger); }}
@@ -520,8 +520,18 @@ def render_html_report(
   tr.signal {{ background: var(--warning); }}
   tr.neutral {{ background: #fbfaf7; }}
   tr:hover {{ filter: brightness(0.985); }}
-  td:first-child a {{ font-weight: 700; color: #0c4a6e; word-break: break-word; }}
-    td:nth-child(8) {{ font-weight: 700; white-space: nowrap; }}
+    td:first-child a {{ font-weight: 700; color: #0c4a6e; word-break: break-word; }}
+    td:nth-child(1) {{ width: 19%; }}
+    td:nth-child(2) {{ width: 6%; }}
+    td:nth-child(3) {{ width: 9%; }}
+    td:nth-child(4) {{ width: 9%; }}
+    td:nth-child(5) {{ width: 6%; }}
+    td:nth-child(6) {{ width: 10%; }}
+    td:nth-child(7) {{ width: 5%; text-align: center; }}
+    td:nth-child(8) {{ width: 16%; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; }}
+    td:nth-child(9) {{ width: 7%; font-weight: 700; }}
+    td:nth-child(10) {{ width: 6%; }}
+    td:nth-child(11) {{ width: 12%; }}
   .status-badge {{ display: inline-block; padding: 6px 10px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; }}
   .status-badge.blocked {{ background: #f9cfcf; color: #7a1717; }}
   .status-badge.live {{ background: #cdeed4; color: #16512a; }}
@@ -532,8 +542,7 @@ def render_html_report(
     .status-badge.traffic-green {{ background: #cdeed4; color: #16512a; }}
     .status-badge.traffic-neutral {{ background: #e6e2d8; color: #424242; }}
   .note-text {{ color: var(--muted); font-size: 0.92rem; line-height: 1.45; }}
-    td:nth-child(7) {{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88rem; }}
-  .scroll {{ overflow-x: auto; }}
+    .scroll {{ overflow-x: visible; }}
 </style>
 </head>
 <body>
