@@ -1,10 +1,12 @@
 param(
     [string]$Credentials = ".\stsc-490212-be6879d57ad0.json",
-    [string]$Sitemap = ".\sitemap.xml",
+    [string]$PropertyUrl = "https://www.stsc.at/",
     [string]$SiteRoot = "https://www.stsc.at/",
-    [ValidateSet("URL_UPDATED", "URL_DELETED")]
-    [string]$Type = "URL_UPDATED",
-    [int]$Limit = 0,
+    [string]$Sitemap = ".\sitemap.xml",
+    [string]$Posts = ".\posts.json",
+    [string]$DbPath = ".\seo_targets.sqlite3",
+    [string]$Homepage = ".\index.html",
+    [int]$PriorityLimit = 0,
     [switch]$DryRun
 )
 
@@ -14,6 +16,9 @@ $python = Join-Path $PSScriptRoot ".venv\Scripts\python.exe"
 $script = Join-Path $PSScriptRoot "google_indexing_api_submit.py"
 $credentialsPath = Join-Path $PSScriptRoot $Credentials
 $sitemapPath = Join-Path $PSScriptRoot $Sitemap
+$postsPath = Join-Path $PSScriptRoot $Posts
+$dbPath = Join-Path $PSScriptRoot $DbPath
+$homepagePath = Join-Path $PSScriptRoot $Homepage
 
 if (-not (Test-Path $python)) {
     throw "Python interpreter not found: $python"
@@ -26,13 +31,16 @@ if (-not (Test-Path $script)) {
 $args = @(
     $script,
     "--credentials", $credentialsPath,
-    "--sitemap", $sitemapPath,
+    "--property-url", $PropertyUrl,
     "--site-root", $SiteRoot,
-    "--type", $Type
+    "--sitemap", $sitemapPath,
+    "--posts", $postsPath,
+    "--db-path", $dbPath,
+    "--homepage", $homepagePath
 )
 
-if ($Limit -gt 0) {
-    $args += @("--limit", $Limit)
+if ($PriorityLimit -gt 0) {
+    $args += @("--priority-limit", $PriorityLimit)
 }
 
 if ($DryRun) {

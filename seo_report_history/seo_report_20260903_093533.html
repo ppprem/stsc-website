@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Diagnose Report</title>
+<style>
+  :root {
+    --bg: #f4efe7;
+    --surface: #ffffff;
+    --ink: #162015;
+    --muted: #5c655f;
+    --accent: #f8951b;
+    --accent-dark: #ab4201;
+    --success: #e9f8ed;
+    --warning: #fff4df;
+    --danger: #fdecec;
+    --border: #e6ded1;
+    --shadow: 0 16px 40px rgba(22, 32, 21, 0.08);
+  }
+  body { font-family: system-ui, sans-serif; margin: 0; background: radial-gradient(circle at top left, #fff8ef 0%, var(--bg) 55%, #efe7db 100%); color: var(--ink); }
+  header { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); color: white; padding: 28px 28px 32px; box-shadow: var(--shadow); }
+  header h1 { margin: 0 0 8px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; }
+  header > div { margin-top: 6px; opacity: 0.95; }
+  main { padding: 24px 28px 40px; max-width: 1440px; margin: 0 auto; }
+  .meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin: -22px 0 24px; }
+  .card { background: var(--surface); border-radius: 16px; padding: 16px 18px; box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.75); }
+  .card strong { display: block; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+  .card span { font-size: 1.9rem; font-weight: 800; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .pill { border-radius: 999px; padding: 8px 14px; font-size: 0.9rem; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.22); }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 18px; color: var(--muted); }
+  .toolbar .chip { background: rgba(22, 32, 21, 0.06); padding: 8px 12px; border-radius: 999px; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); box-shadow: var(--shadow); border-radius: 18px; overflow: hidden; border: 1px solid var(--border); }
+  th, td { padding: 12px 10px; border-bottom: 1px solid #e8e2d8; vertical-align: top; text-align: left; }
+  th { background: #162015; color: white; position: sticky; top: 0; z-index: 1; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  tbody tr:nth-child(even) { background: rgba(22, 32, 21, 0.02); }
+  tr.blocked { background: var(--danger); }
+  tr.live { background: var(--success); }
+  tr.signal { background: var(--warning); }
+  tr.neutral { background: #fbfaf7; }
+  tr:hover { filter: brightness(0.985); }
+  td:first-child a { font-weight: 700; color: #0c4a6e; word-break: break-word; }
+    td:nth-child(8) { font-weight: 700; white-space: nowrap; }
+  .status-badge { display: inline-block; padding: 6px 10px; border-radius: 999px; font-size: 0.85rem; font-weight: 700; }
+  .status-badge.blocked { background: #f9cfcf; color: #7a1717; }
+  .status-badge.live { background: #cdeed4; color: #16512a; }
+  .status-badge.signal { background: #ffe6af; color: #805400; }
+  .status-badge.neutral { background: #e6e2d8; color: #424242; }
+    .status-badge.traffic-red { background: #f9cfcf; color: #7a1717; }
+    .status-badge.traffic-yellow { background: #ffe6af; color: #805400; }
+    .status-badge.traffic-green { background: #cdeed4; color: #16512a; }
+    .status-badge.traffic-neutral { background: #e6e2d8; color: #424242; }
+  .note-text { color: var(--muted); font-size: 0.92rem; line-height: 1.45; }
+    td:nth-child(7) { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88rem; }
+  .scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<header>
+  <h1>SEO Diagnose Report</h1>
+  <div>Site root: https://www.stsc.at/</div>
+    <div>Generated at: 2026-09-03T09:35:33Z</div>
+    <div>Search performance: seit last_seo_update vs gleicher Zeitraum davor</div>
+  <div class="legend">
+    <span class="pill">Blockiert</span>
+    <span class="pill">Live in SERPs</span>
+    <span class="pill">Signal aktiv</span>
+  </div>
+</header>
+<main>
+  <div class="meta">
+    <div class="card"><strong>Seiten</strong><span>13</span></div>
+    <div class="card"><strong>Blockiert</strong><span>13</span></div>
+    <div class="card"><strong>Live in SERPs</strong><span>0</span></div>
+    <div class="card"><strong>Signale aktiv</strong><span>7</span></div>
+  </div>
+  <div class="toolbar">
+        <span class="chip">Grün = frei und neu gecrawlt</span>
+        <span class="chip">Gelb = Änderung noch nicht neu gecrawlt</span>
+        <span class="chip">Rot = aktuell blockiert</span>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Quelle</th>
+          <th>last_seo_update</th>
+          <th>lastCrawlTime</th>
+          <th>verdict</th>
+          <th>coverageState</th>
+                    <th>Ampel</th>
+                    <th>SEO-Wirkung</th>
+          <th>Status</th>
+          <th>Signale</th>
+          <th>Notizen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="signal">
+                <td><a href="https://www.stsc.at/" target="_blank" rel="noopener noreferrer">https://www.stsc.at/</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-03T08:37:49Z</td>
+                <td>2026-09-02T14:16:50Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 0 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge signal">Signal aktiv</span></td>
+                <td>Signal A, Signal B</td>
+                <td class="note-text">Google-Crawl älter als last_seo_update<br>aktuell blockiert</td>
+            </tr><tr class="signal">
+                <td><a href="https://www.stsc.at/index.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/index.html</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-03T08:37:49Z</td>
+                <td>2026-09-01T07:47:00Z</td>
+                <td>NEUTRAL</td>
+                <td>Seite mit Weiterleitung</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 0 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge signal">Signal aktiv</span></td>
+                <td>Signal A, Signal B</td>
+                <td class="note-text">Google-Crawl älter als last_seo_update<br>aktuell blockiert</td>
+            </tr><tr class="signal">
+                <td><a href="https://www.stsc.at/Datenschutz.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/Datenschutz.html</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-02T14:06:00Z</td>
+                <td>2026-06-29T14:23:48Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 0 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge signal">Signal aktiv</span></td>
+                <td>Signal A, Signal B</td>
+                <td class="note-text">Google-Crawl älter als last_seo_update<br>aktuell blockiert</td>
+            </tr><tr class="signal">
+                <td><a href="https://www.stsc.at/Hypnose.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/Hypnose.html</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-02T14:06:00Z</td>
+                <td>2026-09-02T08:05:17Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 34 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge signal">Signal aktiv</span></td>
+                <td>Signal A, Signal B</td>
+                <td class="note-text">Google-Crawl älter als last_seo_update<br>aktuell blockiert</td>
+            </tr><tr class="signal">
+                <td><a href="https://www.stsc.at/Impressum.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/Impressum.html</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-02T14:06:00Z</td>
+                <td>2026-08-29T14:22:10Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 7 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge signal">Signal aktiv</span></td>
+                <td>Signal A, Signal B</td>
+                <td class="note-text">Google-Crawl älter als last_seo_update<br>aktuell blockiert</td>
+            </tr><tr class="signal">
+                <td><a href="https://www.stsc.at/Personalien.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/Personalien.html</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-02T14:06:00Z</td>
+                <td>2026-09-02T08:03:17Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 1 → 0; Impressionen 7 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge signal">Signal aktiv</span></td>
+                <td>Signal A, Signal B</td>
+                <td class="note-text">Google-Crawl älter als last_seo_update<br>aktuell blockiert</td>
+            </tr><tr class="blocked">
+                <td><a href="https://www.stsc.at/Systemische%20Psychotherapie.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/Systemische%20Psychotherapie.html</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-02T14:06:00Z</td>
+                <td>2026-09-02T14:16:50Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 21 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge blocked">Blockiert</span></td>
+                <td>-</td>
+                <td class="note-text">aktuell blockiert</td>
+            </tr><tr class="blocked">
+                <td><a href="https://www.stsc.at/Traumatherapie.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/Traumatherapie.html</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-02T14:06:00Z</td>
+                <td>2026-09-02T14:16:50Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 18 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge blocked">Blockiert</span></td>
+                <td>-</td>
+                <td class="note-text">aktuell blockiert</td>
+            </tr><tr class="signal">
+                <td><a href="https://www.stsc.at/blog.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/blog.html</a></td>
+                <td>file-mtime</td>
+                <td>2026-09-02T14:06:00Z</td>
+                <td>2026-08-29T14:22:11Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 7 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge signal">Signal aktiv</span></td>
+                <td>Signal A, Signal B</td>
+                <td class="note-text">Google-Crawl älter als last_seo_update<br>aktuell blockiert</td>
+            </tr><tr class="blocked">
+                <td><a href="https://www.stsc.at/blog-post-4.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/blog-post-4.html</a></td>
+                <td>posts.json</td>
+                <td>2026-08-03T00:00:00Z</td>
+                <td>2026-08-29T14:24:09Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 0; Impressionen 0 → 0; CTR n/a; Position n/a</td>
+                <td><span class="status-badge blocked">Blockiert</span></td>
+                <td>-</td>
+                <td class="note-text">aktuell blockiert</td>
+            </tr><tr class="blocked">
+                <td><a href="https://www.stsc.at/blog-post-1.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/blog-post-1.html</a></td>
+                <td>posts.json</td>
+                <td>2026-05-02T00:00:00Z</td>
+                <td>2026-08-29T14:24:16Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 2; Impressionen 0 → 154; CTR n/a; Position n/a</td>
+                <td><span class="status-badge blocked">Blockiert</span></td>
+                <td>-</td>
+                <td class="note-text">aktuell blockiert</td>
+            </tr><tr class="blocked">
+                <td><a href="https://www.stsc.at/blog-post-2.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/blog-post-2.html</a></td>
+                <td>posts.json</td>
+                <td>2026-05-02T00:00:00Z</td>
+                <td>2026-08-29T14:24:13Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 13; Impressionen 0 → 1190; CTR n/a; Position n/a</td>
+                <td><span class="status-badge blocked">Blockiert</span></td>
+                <td>-</td>
+                <td class="note-text">aktuell blockiert</td>
+            </tr><tr class="blocked">
+                <td><a href="https://www.stsc.at/blog-post-3.html" target="_blank" rel="noopener noreferrer">https://www.stsc.at/blog-post-3.html</a></td>
+                <td>posts.json</td>
+                <td>2026-05-02T00:00:00Z</td>
+                <td>2026-08-29T14:26:10Z</td>
+                <td>PASS</td>
+                <td>Gesendet und indexiert</td>
+                <td><span class="status-badge traffic-red">Rot</span></td>
+                <td class="note-text">Klicks 0 → 9; Impressionen 0 → 583; CTR n/a; Position n/a</td>
+                <td><span class="status-badge blocked">Blockiert</span></td>
+                <td>-</td>
+                <td class="note-text">aktuell blockiert</td>
+            </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</body>
+</html>

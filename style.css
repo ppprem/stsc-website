@@ -389,6 +389,47 @@ text-align:center;
 padding:40px;
 }
 
+.priority-crawl {
+    width: min(100%, 760px);
+    margin: 24px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.priority-crawl-title {
+    margin: 0 0 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.priority-crawl-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 14px;
+}
+
+.priority-crawl-list a,
+.priority-crawl-list li {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.priority-crawl-list a {
+    background: rgba(255, 255, 255, 0.16);
+    padding: 6px 12px;
+    border-radius: 999px;
+    display: inline-block;
+}
+
+.priority-crawl-list a:hover {
+    background: rgba(255, 255, 255, 0.24);
+}
+
 
 
 /* Mobile */

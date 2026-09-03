@@ -2,6 +2,8 @@ param(
     [string]$SiteRoot = "https://www.stsc.at/",
     [string]$Sitemap = ".\sitemap.xml",
     [string]$Robots = ".\robots.txt",
+    [ValidateSet("Technical", "Content", "SEO")]
+    [string]$DeployKind = "Technical",
     [switch]$ShowFiles
 )
 
@@ -237,6 +239,27 @@ if ($missingFiles.Count -gt 0 -or $canonicalIssues.Count -gt 0 -or $noIndexIssue
     Write-Host ""
     Write-Host "Post-deploy check finished with warnings." -ForegroundColor Yellow
     exit 1
+}
+
+if ($DeployKind -in @("Content", "SEO")) {
+    $seoHook = Join-Path $PSScriptRoot "send_indexing_api.ps1"
+
+    if (-not (Test-Path $seoHook)) {
+        throw "SEO automation hook not found: $seoHook"
+    }
+
+    Write-Host ""
+    Write-Host "Running SEO automation for $DeployKind deploy..."
+    & $seoHook -SiteRoot $SiteRoot -Sitemap $Sitemap
+
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "SEO automation finished with errors." -ForegroundColor Yellow
+        exit $LASTEXITCODE
+    }
+}
+else {
+    Write-Host ""
+    Write-Host "SEO automation skipped for technical deploys."
 }
 
 Write-Host ""
