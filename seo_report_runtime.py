@@ -355,8 +355,9 @@ def render_priority_block(urls: Iterable[str]) -> str:
         for url in normalized_urls:
             parsed = urlparse(url)
             path = parsed.path or "/"
-            href = "/" if path == "/" else quote(path.lstrip("/"))
-            label = "Startseite" if path == "/" else unquote(path.lstrip("/"))
+            normalized_path = unquote(path.lstrip("/"))
+            href = "/" if path == "/" else quote(normalized_path)
+            label = "Startseite" if path == "/" else normalized_path
             rendered_items.append(f'      <li><a href="{escape(href, quote=True)}">{escape(label)}</a></li>')
         items = "\n".join(rendered_items)
 

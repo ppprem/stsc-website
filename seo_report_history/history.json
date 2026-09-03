@@ -1,5 +1,35 @@
 [
   {
+    "generated_at": "2026-09-03T10:36:29Z",
+    "report_name": "seo_report_20260903_103629.html",
+    "counts": {
+      "total": 13,
+      "blocked": 13,
+      "live": 0,
+      "signals": 9
+    }
+  },
+  {
+    "generated_at": "2026-09-03T10:30:56Z",
+    "report_name": "seo_report_20260903_103056.html",
+    "counts": {
+      "total": 13,
+      "blocked": 13,
+      "live": 0,
+      "signals": 9
+    }
+  },
+  {
+    "generated_at": "2026-09-03T10:27:33Z",
+    "report_name": "seo_report_20260903_102733.html",
+    "counts": {
+      "total": 13,
+      "blocked": 13,
+      "live": 0,
+      "signals": 9
+    }
+  },
+  {
     "generated_at": "2026-09-03T09:54:16Z",
     "report_name": "seo_report_20260903_095416.html",
     "counts": {
