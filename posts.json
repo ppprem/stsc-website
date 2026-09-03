@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "id": "blog-post-5",
+      "title": "Neurodiversität und ADHS – anders denken, fühlen und handeln",
+      "date": "2026-09-03",
+      "excerpt": "Durch soziale Medien sind Themen wie Neurodiversität, Autismus und ADHS in den vergangenen Jahren stärker in den öffentlichen Fokus gerückt. Viele Menschen erkennen sich in beschriebenen Erfahrungen wieder und beginnen, sich intensiver mit der Frage zu beschäftigen, ob der Umgang mit ADHS für ihr eigenes Leben eine Rolle spielen könnte.",
+      "url": "blog-post-5.html"
+    },
+    {
       "id": "blog-post-4",
       "title": "Wie Hypnotherapie Sie dabei unterstützen kann, neue Wege im Umgang mit belastenden Situationen zu finden",
       "date": "2026-08-03",
