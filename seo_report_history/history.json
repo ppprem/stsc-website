@@ -1,5 +1,95 @@
 [
   {
+    "generated_at": "2026-09-07T12:16:06Z",
+    "report_name": "seo_report_20260907_121606.html",
+    "counts": {
+      "total": 14,
+      "blocked": 0,
+      "live": 6,
+      "signals": 8
+    }
+  },
+  {
+    "generated_at": "2026-09-06T15:50:33Z",
+    "report_name": "seo_report_20260906_155033.html",
+    "counts": {
+      "total": 14,
+      "blocked": 0,
+      "live": 6,
+      "signals": 8
+    }
+  },
+  {
+    "generated_at": "2026-09-06T05:36:32Z",
+    "report_name": "seo_report_20260906_053632.html",
+    "counts": {
+      "total": 14,
+      "blocked": 0,
+      "live": 5,
+      "signals": 9
+    }
+  },
+  {
+    "generated_at": "2026-09-05T17:52:28Z",
+    "report_name": "seo_report_20260905_175228.html",
+    "counts": {
+      "total": 14,
+      "blocked": 0,
+      "live": 5,
+      "signals": 9
+    }
+  },
+  {
+    "generated_at": "2026-09-05T10:20:54Z",
+    "report_name": "seo_report_20260905_102054.html",
+    "counts": {
+      "total": 14,
+      "blocked": 0,
+      "live": 5,
+      "signals": 9
+    }
+  },
+  {
+    "generated_at": "2026-09-05T10:14:08Z",
+    "report_name": "seo_report_20260905_101408.html",
+    "counts": {
+      "total": 14,
+      "blocked": 14,
+      "live": 0,
+      "signals": 9
+    }
+  },
+  {
+    "generated_at": "2026-09-04T16:05:33Z",
+    "report_name": "seo_report_20260904_160533.html",
+    "counts": {
+      "total": 14,
+      "blocked": 14,
+      "live": 0,
+      "signals": 9
+    }
+  },
+  {
+    "generated_at": "2026-09-04T13:30:43Z",
+    "report_name": "seo_report_20260904_133043.html",
+    "counts": {
+      "total": 14,
+      "blocked": 14,
+      "live": 0,
+      "signals": 9
+    }
+  },
+  {
+    "generated_at": "2026-09-04T08:38:44Z",
+    "report_name": "seo_report_20260904_083844.html",
+    "counts": {
+      "total": 14,
+      "blocked": 14,
+      "live": 0,
+      "signals": 9
+    }
+  },
+  {
     "generated_at": "2026-09-03T14:54:54Z",
     "report_name": "seo_report_20260903_145454.html",
     "counts": {
@@ -102,16 +192,6 @@
   {
     "generated_at": "2026-09-03T08:30:01Z",
     "report_name": "seo_report_20260903_083001.html",
-    "counts": {
-      "total": 13,
-      "blocked": 13,
-      "live": 0,
-      "signals": 0
-    }
-  },
-  {
-    "generated_at": "2026-09-03T08:10:08Z",
-    "report_name": "seo_report_20260903_081008.html",
     "counts": {
       "total": 13,
       "blocked": 13,

@@ -313,8 +313,13 @@ def compare_performance(before: PerformanceSnapshot, after: PerformanceSnapshot)
 
 
 def is_blocked(verdict: str | None, coverage_state: str | None, response: dict) -> bool:
-    combined = f"{verdict or ''} {coverage_state or ''} {response!r}".lower()
-    return any(marker in combined for marker in ("blocked", "noindex", "robots", "excluded", "crawl anomaly", "fail"))
+    combined = f"{verdict or ''} {coverage_state or ''}".lower()
+    if any(marker in combined for marker in ("blocked", "noindex", "robots", "excluded", "crawl anomaly", "fail")):
+        return True
+
+    inspection_result = response.get("inspectionResult", {}) if isinstance(response, dict) else {}
+    index_status = inspection_result.get("indexStatusResult", {}) if isinstance(inspection_result, dict) else {}
+    return str(index_status.get("verdict", "")).lower() in {"blocked", "fail"}
 
 
 def update_sitemap_lastmods(sitemap_path: Path, urls: Iterable[str], new_timestamp: datetime, dry_run: bool) -> list[str]:
