@@ -53,6 +53,9 @@
       "@type": ["Psychotherapist", "LocalBusiness"],
       "@id": "https://www.stsc.at/#practice",
       "name": "Psychotherapeutische Praxis - Mag.ª Silvia Christine Bors",
+      "employee": {
+        "@id": "https://www.stsc.at/#silvia-christine-bors"
+      },
       "url": "https://www.stsc.at/",
       "telephone": "+43-680-3136988",
       "email": "sc.bors@stsc.at",
@@ -99,28 +102,89 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Wie Hypnotherapie Sie dabei unterstützen kann, neue Wege im Umgang mit belastenden Situationen zu finden",
-  "datePublished": "2026-08-03",
-  "dateModified": "2026-08-03",
-  "inLanguage": "de-AT",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.stsc.at/blog-post-4.html"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Mag.ª Silvia Christine Bors"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "STSC",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.stsc.at/picture_library/Google_neu.png"
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.stsc.at/blog-post-4.html#article",
+      "url": "https://www.stsc.at/blog-post-4.html",
+      "headline": "Wie Hypnotherapie Sie dabei unterstützen kann, neue Wege im Umgang mit belastenden Situationen zu finden",
+      "description": "Fachbeitrag von Mag.ª Silvia Christine Bors über Hypnotherapie und ihre Anwendung bei belastenden Situationen.",
+      "inLanguage": "de-AT",
+      "isPartOf": {
+        "@id": "https://www.stsc.at/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://www.stsc.at/blog-post-4.html#webpage"
+      },
+      "author": {
+        "@id": "https://www.stsc.at/#silvia-christine-bors"
+      },
+      "publisher": {
+        "@id": "https://www.stsc.at/#practice"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Hypnotherapie"
+        },
+        {
+          "@type": "Thing",
+          "name": "Hypnose"
+        }
+      ],
+      "keywords": [
+        "Hypnotherapie",
+        "Hypnose"
+      ],
+      "datePublished": "2026-08-03",
+      "dateModified": "2026-08-03",
+      "image": "https://www.stsc.at/picture_library/silvia-christine-bors-psychotherapie-wien.webp"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stsc.at/blog-post-4.html#webpage",
+      "url": "https://www.stsc.at/blog-post-4.html",
+      "name": "Wie Hypnotherapie Sie dabei unterstützen kann, neue Wege im Umgang mit belastenden Situationen zu finden",
+      "inLanguage": "de-AT",
+      "isPartOf": {
+        "@id": "https://www.stsc.at/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Hypnotherapie"
+        },
+        {
+          "@type": "Thing",
+          "name": "Hypnose"
+        }
+      ],
+      "author": {
+        "@id": "https://www.stsc.at/#silvia-christine-bors"
+      },
+      "mainEntity": {
+        "@id": "https://www.stsc.at/blog-post-4.html#article"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.stsc.at/#silvia-christine-bors",
+      "name": "Silvia Christine Bors",
+      "jobTitle": "Psychotherapeutin",
+      "url": "https://www.stsc.at/",
+      "worksFor": {
+        "@id": "https://www.stsc.at/#practice"
+      },
+      "knowsAbout": [
+        "Psychotherapie",
+        "Systemische Psychotherapie",
+        "Traumatherapie",
+        "EMDR",
+        "Ego-State-Therapie",
+        "Hypnotherapie"
+      ]
     }
-  },
-  "image": "https://www.stsc.at/picture_library/silvia-christine-bors-psychotherapie-wien.webp"
+  ]
 }
 </script>
 </head>

@@ -1,5 +1,15 @@
 [
   {
+    "generated_at": "2026-09-09T10:43:39Z",
+    "report_name": "seo_report_20260909_104339.html",
+    "counts": {
+      "total": 14,
+      "blocked": 0,
+      "live": 6,
+      "signals": 8
+    }
+  },
+  {
     "generated_at": "2026-09-08T08:13:27Z",
     "report_name": "seo_report_20260908_081327.html",
     "counts": {
@@ -182,16 +192,6 @@
   {
     "generated_at": "2026-09-03T09:26:33Z",
     "report_name": "seo_report_20260903_092633.html",
-    "counts": {
-      "total": 13,
-      "blocked": 13,
-      "live": 0,
-      "signals": 7
-    }
-  },
-  {
-    "generated_at": "2026-09-03T09:23:05Z",
-    "report_name": "seo_report_20260903_092305.html",
     "counts": {
       "total": 13,
       "blocked": 13,
