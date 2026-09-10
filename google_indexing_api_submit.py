@@ -399,11 +399,30 @@ def inspect_url(service, property_url: str, target: SeoTarget, language_code: st
         "languageCode": language_code,
     }
 
-    response = service.urlInspection().index().inspect(body=request_body).execute()
-    result = response.get("inspectionResult", {})
-    index_status = result.get("indexStatusResult", {})
-    last_crawl = parse_timestamp(index_status.get("lastCrawlTime"))
-    return response, last_crawl, index_status.get("verdict"), index_status.get("coverageState")
+    last_error: Exception | None = None
+    for attempt in range(3):
+        try:
+            response = service.urlInspection().index().inspect(body=request_body).execute()
+            result = response.get("inspectionResult", {})
+            index_status = result.get("indexStatusResult", {})
+            last_crawl = parse_timestamp(index_status.get("lastCrawlTime"))
+            return response, last_crawl, index_status.get("verdict"), index_status.get("coverageState")
+        except Exception as exc:
+            last_error = exc
+            status_code = getattr(getattr(exc, "resp", None), "status", None)
+            if status_code not in {429, 500, 502, 503, 504} or attempt == 2:
+                raise
+
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError(f"Inspection failed for {target.url}")
+
+
+def inspection_failure_note(exc: Exception) -> str:
+    status_code = getattr(getattr(exc, "resp", None), "status", None)
+    if status_code is not None:
+        return f"Inspection unavailable (HTTP {status_code}): {exc}"
+    return f"Inspection unavailable: {exc}"
 
 
 def is_blocked(verdict: str | None, coverage_state: str | None, response: dict) -> bool:
@@ -733,11 +752,11 @@ def main() -> int:
                     verdict=None,
                     coverage_state=None,
                     last_crawl_time=None,
-                    blocked=True,
+                    blocked=False,
                     live_in_serps=False,
                     signal_a=False,
                     signal_b=False,
-                    notes=[f"Inspection failed: {exc}"],
+                    notes=[inspection_failure_note(exc)],
                 )
             )
             continue
