@@ -164,6 +164,23 @@ function Test-TextFileContains {
 
 $sitemapPath = Get-AbsolutePath $Sitemap
 $robotsPath = Get-AbsolutePath $Robots
+$sitemapGenerator = Join-Path $PSScriptRoot "generate_sitemap.py"
+$python = Join-Path $PSScriptRoot ".venv\Scripts\python.exe"
+
+if (-not (Test-Path $python)) {
+    throw "Python interpreter not found: $python"
+}
+
+if (-not (Test-Path $sitemapGenerator)) {
+    throw "Sitemap generator not found: $sitemapGenerator"
+}
+
+Write-Host "Generating sitemap from local HTML mtimes..."
+& $python $sitemapGenerator --site-root $SiteRoot --output $sitemapPath --root $PSScriptRoot
+
+if ($LASTEXITCODE -ne 0) {
+    throw "Sitemap generation failed with exit code $LASTEXITCODE"
+}
 
 Write-Host "Post-deploy check for $SiteRoot"
 Write-Host "Sitemap: $sitemapPath"

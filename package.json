@@ -1,0 +1,9 @@
+{
+  "name": "stsc-site-seo-tools",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "sitemap": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\post_deploy.ps1 -DeployKind Technical",
+    "sitemap:seo": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\post_deploy.ps1 -DeployKind SEO"
+  }
+}

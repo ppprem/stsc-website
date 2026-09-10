@@ -1,5 +1,25 @@
 [
   {
+    "generated_at": "2026-09-10T11:03:49Z",
+    "report_name": "seo_report_20260910_110349.html",
+    "counts": {
+      "total": 13,
+      "blocked": 0,
+      "live": 13,
+      "signals": 7
+    }
+  },
+  {
+    "generated_at": "2026-09-10T10:02:34Z",
+    "report_name": "seo_report_20260910_100234.html",
+    "counts": {
+      "total": 14,
+      "blocked": 0,
+      "live": 13,
+      "signals": 8
+    }
+  },
+  {
     "generated_at": "2026-09-10T08:00:27Z",
     "report_name": "seo_report_20260910_080027.html",
     "counts": {
@@ -177,26 +197,6 @@
       "blocked": 14,
       "live": 0,
       "signals": 9
-    }
-  },
-  {
-    "generated_at": "2026-09-04T08:38:44Z",
-    "report_name": "seo_report_20260904_083844.html",
-    "counts": {
-      "total": 14,
-      "blocked": 14,
-      "live": 0,
-      "signals": 9
-    }
-  },
-  {
-    "generated_at": "2026-09-03T14:54:54Z",
-    "report_name": "seo_report_20260903_145454.html",
-    "counts": {
-      "total": 14,
-      "blocked": 14,
-      "live": 0,
-      "signals": 6
     }
   }
 ]
