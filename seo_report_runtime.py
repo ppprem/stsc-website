@@ -409,17 +409,19 @@ def update_homepage_priority_block(homepage_path: Path, urls: Iterable[str], dry
     return True
 
 
-def determine_actions(blocked: bool, seo_update: datetime, last_crawl: datetime | None) -> tuple[bool, bool, list[str]]:
+def determine_actions(blocked: bool, seo_update: datetime, last_crawl: datetime | None) -> tuple[bool, list[str]]:
     stale = last_crawl is None or last_crawl < seo_update
-    live = last_crawl is not None and last_crawl >= seo_update and not blocked
     notes: list[str] = []
     if stale:
         notes.append("Google-Crawl älter als last_seo_update")
-    elif live:
-        notes.append("SEO-Update bereits live in Google")
     if blocked:
         notes.append("aktuell blockiert")
-    return stale, live, notes
+    return stale, notes
+
+
+def is_indexed(coverage_state: str | None, verdict: str | None) -> bool:
+    combined = f"{coverage_state or ''} {verdict or ''}".lower()
+    return any(marker in combined for marker in ("indexed", "indexiert", "gesendet und indexiert"))
 
 
 def status_label(row: InspectionRow) -> str:
@@ -445,10 +447,10 @@ def status_class(row: InspectionRow) -> str:
 def traffic_light_label(row: InspectionRow) -> str:
     if row.blocked:
         return "Rot"
-    if row.signal_a or row.signal_b:
-        return "Gelb"
     if row.live_in_serps:
         return "Grün"
+    if row.signal_a or row.signal_b:
+        return "Gelb"
     return "Unklar"
 
 
@@ -477,7 +479,15 @@ def render_html_report(
     table_rows = []
     for row in rows:
         signal_text = ", ".join(filter(None, ["Signal A" if row.signal_a else "", "Signal B" if row.signal_b else ""])) or "-"
-        notes_text = "<br>".join(escape(note) for note in row.notes) if row.notes else "-"
+        notes = list(row.notes)
+        source_text = row.target.source
+        if row.target.source == "posts.json":
+            source_text = "posts.json (Publikationsdatum)"
+            notes.append("last_seo_update stammt aus posts.json; keine Änderungsuhrzeit verfügbar")
+        elif row.target.source == "file-mtime":
+            source_text = "file-mtime (HTML-Datei)"
+
+        notes_text = "<br>".join(escape(note) for note in notes) if notes else "-"
         crawl_text = format_timestamp(row.last_crawl_time) if row.last_crawl_time else "nie"
         status = status_label(row)
         badge_class = status_class(row)
@@ -487,7 +497,7 @@ def render_html_report(
             f"""
             <tr class="{badge_class}">
                 <td><a href="{escape(row.target.url, quote=True)}" target="_blank" rel="noopener noreferrer">{escape(row.target.url)}</a></td>
-                <td>{escape(row.target.source)}</td>
+                <td>{escape(source_text)}</td>
                 <td>{escape(format_timestamp(row.target.last_seo_update))}</td>
                 <td>{escape(crawl_text)}</td>
                 <td>{escape(row.verdict or '-')}</td>
@@ -786,7 +796,10 @@ def main() -> int:
             continue
 
         blocked = is_blocked(verdict, coverage_state, response)
-        stale, live, notes = determine_actions(blocked, target.last_seo_update, last_crawl)
+        live = is_indexed(coverage_state, verdict) and not blocked
+        stale, notes = determine_actions(blocked, target.last_seo_update, last_crawl)
+        if live:
+            notes.append("Indexstatus bestätigt in Search Console")
         performance_summary = None
 
         current_start, current_end, previous_start, previous_end = performance_window_from_update(
