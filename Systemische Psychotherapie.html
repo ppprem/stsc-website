@@ -98,19 +98,23 @@
       "hasCredential": [
         {
           "@type": "EducationalOccupationalCredential",
-          "name": "Zertifizierung in Psychotraumatologie und Traumapsychotherapie"
+          "name": "Zertifizierung in Psychotraumatologie und Traumapsychotherapie",
+          "credentialCategory": "Traumatherapeutische Zusatzqualifikation"
         },
         {
           "@type": "EducationalOccupationalCredential",
-          "name": "Klinische Hypnose und Hypnotherapie (MEGA)"
+          "name": "Klinische Hypnose und Hypnotherapie (MEGA)",
+          "credentialCategory": "Hypnotherapeutische Zusatzqualifikation"
         },
         {
           "@type": "EducationalOccupationalCredential",
-          "name": "EMDR-Therapeutin"
+          "name": "EMDR-Therapeutin",
+          "credentialCategory": "Traumatherapeutische Zusatzqualifikation"
         },
         {
           "@type": "EducationalOccupationalCredential",
-          "name": "Kinder- und Jugendpsychotherapie (nach Richtlinien des BMG)"
+          "name": "Kinder- und Jugendpsychotherapie (nach Richtlinien des BMG)",
+          "credentialCategory": "Zusatzqualifikation Kinder- und Jugendpsychotherapie"
         }
       ],
       "memberOf": [
@@ -133,13 +137,13 @@
       "knowsAbout": [
         "Psychotherapie",
         "Systemische Psychotherapie",
-        "Systemische Einzeltherapie",
+        "Systemische Einzeltherapie für Kinder, Jugendliche und Erwachsene",
         "Systemische Paartherapie",
         "Systemische Familientherapie",
         "Traumatherapie",
         "EMDR",
         "Ego-State-Therapie",
-        "Hypnotherapie"
+        "Klinische Hypnose und Hypnotherapie"
       ]
     },
 
@@ -184,7 +188,11 @@
     {
       "@type": "Service",
       "@id": "https://www.stsc.at/Systemische%20Psychotherapie.html#service",
+      "subjectOf": {
+        "@id": "https://www.stsc.at/Systemische%20Psychotherapie.html#webpage"
+      },
       "serviceType": "Systemische Psychotherapie",
+      "description": "Systemische Psychotherapie in Wien, individuell auf Ihre Situation abgestimmt.",
       "provider": {
         "@id": "https://www.stsc.at/#practice"
       },
