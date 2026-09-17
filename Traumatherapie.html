@@ -114,11 +114,6 @@
       ],
       "memberOf": [
         {
-          "@type": "MedicalOrganization",
-          "name": "Bundesministerium für Gesundheit (Eingetragene Psychotherapeutin)",
-          "sameAs": "https://www.sozialministerium.at/"
-        },
-        {
           "@type": "Organization",
           "name": "Österreichischer Bundesverband für Psychotherapie (ÖBVP)",
           "sameAs": "https://www.psychotherapie.at/"
@@ -135,12 +130,13 @@
         }
       ],
       "knowsAbout": [
-        "Psychotherapie",
-        "Systemische Psychotherapie",
-        "Traumatherapie",
-        "EMDR",
-        "Ego-State-Therapie",
-        "Hypnotherapie"
+      "Traumatherapie",
+      "Psychotraumatologie",
+      "EMDR",
+      "Ego-State-Therapie",
+      "Systemische Psychotherapie",
+      "Hypnotherapie",
+      "Psychotherapie"
       ]
     },
     {
@@ -182,7 +178,12 @@
     {
       "@type": "Service",
       "@id": "https://www.stsc.at/Traumatherapie.html#service",
-      "serviceType": "Traumatherapie und EMDR",
+      "subjectOf": {
+        "@id": "https://www.stsc.at/Traumatherapie.html#webpage"
+      },
+      "description": "Traumatherapie mit traumaspezifischen Methoden wie EMDR und Ego-State-Arbeit.",
+      "name": "Traumatherapie und EMDR",
+      "serviceType": "Traumatherapie",
       "provider": {
         "@id": "https://www.stsc.at/#practice"
       },
