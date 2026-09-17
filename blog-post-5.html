@@ -99,28 +99,107 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Neurodiversität und ADHS – anders denken, fühlen und handeln",
-  "datePublished": "2026-09-03",
-  "dateModified": "2026-09-03",
-  "inLanguage": "de-AT",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.stsc.at/blog-post-5.html"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Mag.ª Silvia Christine Bors"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "STSC",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.stsc.at/picture_library/Google_neu.png"
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://www.stsc.at/#practice",
+      "name": "Psychotherapeutische Praxis - Mag.ª Silvia Christine Bors",
+      "url": "https://www.stsc.at/",
+      "telephone": "+43-680-3136988",
+      "email": "sc.bors@stsc.at",
+      "image": "https://www.stsc.at/picture_library/silvia-christine-bors-psychotherapie-wien.webp",
+      "logo": "https://www.stsc.at/picture_library/Google_neu.png",
+      "sameAs": [
+        "https://oent.at/therapeutinnen/#toggle-id-1",
+        "https://www.zap-wien.at/absolvent:innen",
+        "https://www.herold.at/gelbe-seiten/wien/vGvZb/mag-bors-silvia-christine/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ledererhof 2 / Drahtgasse 3",
+        "addressLocality": "Wien",
+        "postalCode": "1010",
+        "addressCountry": "AT"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Wien"
+      },
+      "availableLanguage": [
+        "de",
+        "en"
+      ],
+      "employee": {
+        "@id": "https://www.stsc.at/#silvia-christine-bors"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.stsc.at/#silvia-christine-bors",
+      "name": "Silvia Christine Bors",
+      "jobTitle": "Psychotherapeutin",
+      "url": "https://www.stsc.at/",
+      "worksFor": {
+        "@id": "https://www.stsc.at/#practice"
+      },
+      "knowsAbout": [
+        "Psychotherapie",
+        "Systemische Psychotherapie",
+        "Traumatherapie",
+        "EMDR",
+        "Ego-State-Therapie",
+        "Hypnotherapie"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.stsc.at/#website",
+      "url": "https://www.stsc.at/",
+      "name": "STSC - Psychotherapie Wien",
+      "inLanguage": "de-AT",
+      "publisher": {
+        "@id": "https://www.stsc.at/#practice"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.stsc.at/blog-post-5.html#webpage",
+      "url": "https://www.stsc.at/blog-post-5.html",
+      "name": "Neurodiversität und ADHS – anders denken, fühlen und handeln",
+      "inLanguage": "de-AT",
+      "isPartOf": {
+        "@id": "https://www.stsc.at/#website"
+      },
+      "about": {
+        "@id": "https://www.stsc.at/#practice"
+      },
+      "author": {
+        "@id": "https://www.stsc.at/#silvia-christine-bors"
+      },
+      "mainEntity": {
+        "@id": "https://www.stsc.at/blog-post-5.html#article"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.stsc.at/blog-post-5.html#article",
+      "url": "https://www.stsc.at/blog-post-5.html",
+      "headline": "Neurodiversität und ADHS – anders denken, fühlen und handeln",
+      "datePublished": "2026-09-03",
+      "dateModified": "2026-09-03",
+      "inLanguage": "de-AT",
+      "mainEntityOfPage": {
+        "@id": "https://www.stsc.at/blog-post-5.html#webpage"
+      },
+      "author": {
+        "@id": "https://www.stsc.at/#silvia-christine-bors"
+      },
+      "publisher": {
+        "@id": "https://www.stsc.at/#practice"
+      },
+      "image": "https://www.stsc.at/picture_library/silvia-christine-bors-psychotherapie-wien.webp"
     }
-  },
-  "image": "https://www.stsc.at/picture_library/silvia-christine-bors-psychotherapie-wien.webp"
+  ]
 }
 </script>
 </head>
