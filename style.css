@@ -333,22 +333,29 @@ transition: background-color 0.3s;
 /* Layout */
 
 .container{
-width:min(var(--content-max-width), calc(100% - (var(--side-gutter) * 2)));
+width:min(var(--content-max-width), 100%);
 margin:auto;
 display:grid;
 grid-template-columns:1.5fr 1.5fr;
 gap:40px;
-padding:60px 0;
+padding:60px var(--side-gutter);
+box-sizing:border-box;
 }
 
 .content{
 font-size:18px;
+min-width:0;
+overflow-wrap:anywhere;
+word-break:break-word;
 }
 
 .sidebar{
 background: #f5f4f2;
 padding:30px;
 color:#162015;
+min-width:0;
+overflow-wrap:anywhere;
+word-break:break-word;
 }
 
 .sidebar img{
@@ -445,6 +452,7 @@ padding:40px;
 
 .container{
 grid-template-columns:1fr;
+padding:40px var(--side-gutter);
 }
  
 .menu {
