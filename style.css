@@ -303,7 +303,7 @@ transition: background-color 0.3s;
     color: #162015;
     font-weight: 400;
     text-decoration-line: underline;
-    text-decoration-color: #f8951b;
+    text-decoration-color: #b65300;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.15em;
 }
@@ -326,7 +326,7 @@ transition: background-color 0.3s;
 
 .register-link:hover,
 .register-link:focus-visible {
-    text-decoration-color: #f8951b;
+    text-decoration-color: #b65300;
 }
 
 .emdr-link-row {
