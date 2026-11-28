@@ -59,7 +59,7 @@ a[href^="mailto:"] {
     color: #162015;
 	text-decoration: none; 
 }
-	
+
 .menu{
 display:flex;
 flex-wrap:nowrap;
@@ -295,10 +295,31 @@ transition: background-color 0.3s;
     text-decoration: none;
 }
 
+.register-link {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: 0.7em;
+    color: #162015;
+    font-weight: 400;
+    text-decoration-line: underline;
+    text-decoration-color: #f8951b;
+    text-underline-offset: 0.15em;
+}
+
+.register-link:last-of-type {
+    margin-bottom: 0;
+}
+
 .emdr-blog-link:hover,
 .emdr-blog-link:focus-visible {
     background: #fbe2cc;
     text-decoration: none;
+}
+
+.register-link:hover,
+.register-link:focus-visible {
+    text-decoration-color: #f8951b;
 }
 
 .emdr-link-row {
