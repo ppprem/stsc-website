@@ -1,5 +1,35 @@
 [
   {
+    "generated_at": "2026-11-28T09:42:24Z",
+    "report_name": "seo_report_20261128_094224.html",
+    "counts": {
+      "total": 13,
+      "blocked": 0,
+      "live": 13,
+      "signals": 1
+    }
+  },
+  {
+    "generated_at": "2026-11-27T08:37:28Z",
+    "report_name": "seo_report_20261127_083728.html",
+    "counts": {
+      "total": 13,
+      "blocked": 0,
+      "live": 13,
+      "signals": 5
+    }
+  },
+  {
+    "generated_at": "2026-11-25T18:37:16Z",
+    "report_name": "seo_report_20261125_183716.html",
+    "counts": {
+      "total": 13,
+      "blocked": 0,
+      "live": 13,
+      "signals": 5
+    }
+  },
+  {
     "generated_at": "2026-11-25T13:46:22Z",
     "report_name": "seo_report_20261125_134622.html",
     "counts": {
@@ -167,36 +197,6 @@
       "blocked": 0,
       "live": 13,
       "signals": 8
-    }
-  },
-  {
-    "generated_at": "2026-09-17T13:06:34Z",
-    "report_name": "seo_report_20260917_130634.html",
-    "counts": {
-      "total": 13,
-      "blocked": 0,
-      "live": 13,
-      "signals": 8
-    }
-  },
-  {
-    "generated_at": "2026-09-17T12:31:44Z",
-    "report_name": "seo_report_20260917_123144.html",
-    "counts": {
-      "total": 13,
-      "blocked": 0,
-      "live": 13,
-      "signals": 8
-    }
-  },
-  {
-    "generated_at": "2026-09-15T07:43:23Z",
-    "report_name": "seo_report_20260915_074323.html",
-    "counts": {
-      "total": 13,
-      "blocked": 0,
-      "live": 13,
-      "signals": 3
     }
   }
 ]
