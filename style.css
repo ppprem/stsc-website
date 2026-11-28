@@ -304,7 +304,14 @@ transition: background-color 0.3s;
     font-weight: 400;
     text-decoration-line: underline;
     text-decoration-color: #f8951b;
+    text-decoration-thickness: 2px;
     text-underline-offset: 0.15em;
+}
+
+.blog-post .register-link {
+    display: inline;
+    width: auto;
+    margin: 0;
 }
 
 .register-link:last-of-type {
